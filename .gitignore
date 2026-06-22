@@ -24,6 +24,9 @@ ENV/
 *.pem
 *.key
 id_rsa*
+# Tencent API key downloads / any credential CSV
+*.csv
+SecretKey*.csv
 
 # Test / coverage artifacts
 .pytest_cache/
