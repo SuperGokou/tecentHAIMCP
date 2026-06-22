@@ -1,0 +1,58 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tencent-hai-mcp"
+version = "0.1.0"
+description = "MCP server for Tencent Cloud HAI — manage GPU instances and deploy your own apps in natural language from Claude Code / Codex."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Ming Xia" }]
+keywords = [
+    "mcp",
+    "model-context-protocol",
+    "tencent",
+    "tencent-cloud",
+    "hai",
+    "claude",
+    "codex",
+    "gpu",
+    "llm",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+dependencies = [
+    "mcp>=1.10.0",
+    "tencentcloud-sdk-python-hai>=3.0.1000",
+    "paramiko>=3.0.0",
+]
+
+[project.optional-dependencies]
+dotenv = ["python-dotenv>=1.0.0"]
+dev = ["pytest>=8.0.0", "python-dotenv>=1.0.0"]
+
+[project.scripts]
+hai-mcp = "hai_mcp.server:main"
+
+[project.urls]
+Homepage = "https://github.com/SuperGokou/tecentHAIMCP"
+Repository = "https://github.com/SuperGokou/tecentHAIMCP"
+Issues = "https://github.com/SuperGokou/tecentHAIMCP/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hai_mcp"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
